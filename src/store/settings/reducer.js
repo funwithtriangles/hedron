@@ -5,13 +5,15 @@ const defaultState = {
   aspectH: 9,
   throttledFPS: 60,
   watchSketchesDir: true,
+  generateAudioTexture: false,
+  computeFullSpectrum: false,
 }
 
 const settingsReducer = (state = defaultState, action) => {
   const p = action.payload
 
   switch (action.type) {
-    case 'SETTINGS_UPDATE': {
+    case 'R_SETTINGS_UPDATE': {
       return {
         ...state,
         ...p.items,

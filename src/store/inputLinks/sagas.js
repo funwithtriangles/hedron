@@ -4,8 +4,10 @@ import getInputLink from '../../selectors/getInputLink'
 import getNode from '../../selectors/getNode'
 import { rInputLinkAdd, rInputLinkDelete } from './actions'
 import { uAnimStart } from '../anims/actions'
-import { rNodeCreate, uNodeCreate, uNodeDelete, uNodeInputLinkAdd,
-  nodeInputLinkRemove, nodeActiveInputLinkToggle, rNodeDelete } from '../nodes/actions'
+import {
+  rNodeCreate, uNodeCreate, uNodeDelete, uNodeInputLinkAdd,
+  nodeInputLinkRemove, nodeActiveInputLinkToggle, rNodeDelete
+} from '../nodes/actions'
 import { inputAssignedLinkCreate, inputAssignedLinkDelete } from '../inputs/actions'
 import lfoGenerateOptions from '../../utils/lfoGenerateOptions'
 import midiGenerateOptions from '../../utils/midiGenerateOptions'
@@ -22,7 +24,7 @@ import uid from 'uid'
   an input link. The link takes in the input value, sends it through modifiers and then
   applies that value to the param.
 */
-export function* inputLinkCreate (action) {
+export function* inputLinkCreate(action) {
   const p = action.payload
   const m = p.meta
   const modifierIds = []
@@ -197,7 +199,7 @@ export function* inputLinkCreate (action) {
   }
 }
 
-export function* inputLinkDelete (action) {
+export function* inputLinkDelete(action) {
   const p = action.payload
 
   const link = yield select(getInputLink, p.id)
@@ -222,7 +224,7 @@ export function* inputLinkDelete (action) {
   yield put(rInputLinkDelete(p.id))
 }
 
-export function* watchInputLinks () {
+export function* watchInputLinks() {
   yield takeEvery('U_INPUT_LINK_CREATE', inputLinkCreate)
   yield takeEvery('U_INPUT_LINK_DELETE', inputLinkDelete)
 }

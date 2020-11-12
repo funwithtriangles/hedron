@@ -17,6 +17,12 @@ export default (state, nodeId) => {
       exclude: ['linkableAction'],
     },
     {
+      value: 'texture',
+      type: 'texture',
+      label: 'Texture',
+      exclude: ['linkableAction'],
+    },
+    {
       value: 'midi-learn',
       type: 'midi',
       label: 'MIDI Learn',
